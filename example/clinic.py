@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 import codecs
-from baidu.geo_api import get_address_location
+import baidu
 import json
 
 with codecs.open('data/clinic.txt', 'r', encoding='utf-8') as f:
+    map_api = baidu.MapApi()
     matched = []
     unmatched = []
     for line in f:
         clinic_name = line.strip()
-        loc = get_address_location(u'深圳 %s' % clinic_name)
+        loc = map_api.location_api.get_location_by_address(u'深圳 %s' % clinic_name)
         if loc:
             matched.append({'name': clinic_name, 'loc': loc})
         else:
