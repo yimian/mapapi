@@ -4,7 +4,7 @@
 """
 
 from xpinyin import Pinyin
-from baidu.place_api import get_place_all
+import baidu
 import json
 import logging
 import re
@@ -13,6 +13,7 @@ malls = [u'家乐福', u'沃尔玛', u'好又多']
 cities = [u'广州', u'深圳', u'佛山', u'东莞', u'惠州', u'中山', u'湛江', u'茂名', u'江门']
 
 piny = Pinyin()
+map_api = baidu.MapApi()
 
 
 def get_file_name_by_city(city):
@@ -30,7 +31,7 @@ def get_malls_by_city(malls, city, filter=None):
     with open(file_name, 'w') as f:
         locations = []
         for m in malls:
-            data = get_place_all(m, city, scope=2, industry_type='life', groupon=0, discount=0)
+            data = map_api.place_api.get_place_all(m, city, scope=2, industry_type='life', groupon=0, discount=0)
             nfilter = 0
             for item in data:
                 try:

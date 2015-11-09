@@ -9,8 +9,15 @@ from transform_api import TransformApi
 
 class MapApi(object):
     def __init__(self, aks=None, scheduler=None, **kwargs):
+        """
+        initialize MapApi instance with application keys `aks`, aks scheduler.
+
+        :param aks: list of application keys.
+        :param scheduler: default RoundRobinScheduler
+        :param kwargs:
+        """
         super(MapApi, self).__init__()
-        self.aks = aks
+        self.aks = aks or ['wwx6xhe8aQncZZUm7QsIPXKI', '9ea66EnDo1YLFuzu5QDDp4zU']
         self.scheduler = scheduler
         self._place_api_inst = None
         self._location_api_inst = None
