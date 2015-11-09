@@ -130,6 +130,8 @@ def get_place_all(query, region, **kwargs):
 def get_place_by_uids(uids, **kwargs):
     """
     Place详情检索服务
+
+    uids最多10个
     """
     params = {}
     if isinstance(uids, list):
