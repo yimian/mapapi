@@ -5,7 +5,7 @@ def readme():
         return f.read()
 
 setup(name='mapapi',
-      version='0.1',
+      version='0.1.1',
       description='map web api, current support baidu',
       long_description=readme(),
       keywords='map baidu',
@@ -13,8 +13,9 @@ setup(name='mapapi',
       author='zhangjinjie',
       author_email='zhangjinjie@yimian.com.cn',
       license='MIT',
-      packages=['mapapi'],
+      packages=['mapapi', 'mapapi/baidu'],
       install_requires=[
           'requests',
       ],
+      include_package_data=True,
       zip_safe=False)
