@@ -49,3 +49,8 @@ mapapi
   >>> map_api = baidu.MapApi(['your application key', ...])
   >>> coords = map_api.transform_api.transform({'lat': 29.5754297789, 'lng': 114.218927345})
   >>> print coords
+
+
+安装方法:
+
+  pip install mapapi
