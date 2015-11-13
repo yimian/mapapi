@@ -1,11 +1,12 @@
 from setuptools import setup
+import codecs
 
 def readme():
-    with open('README.rst') as f:
+    with codecs.open('README.rst', 'r', encoding='utf-8') as f:
         return f.read()
 
 setup(name='mapapi',
-      version='0.1.1',
+      version='0.1.2',
       description='map web api, current support baidu',
       long_description=readme(),
       keywords='map baidu',
