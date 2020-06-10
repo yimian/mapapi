@@ -6,7 +6,7 @@ def readme():
         return f.read()
 
 setup(name='mapapi',
-      version='0.1.2',
+      version='0.2.0',
       description='map web api, current support baidu',
       long_description=readme(),
       keywords='map baidu',

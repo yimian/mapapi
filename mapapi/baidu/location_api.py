@@ -5,7 +5,7 @@ __author__ = 'zhangjinjie'
 import requests
 import logging
 import json
-from exceptions import ParamError
+from mapapi.baidu.exceptions import ParamError
 
 # 返回码
 baidu_ret_code = {

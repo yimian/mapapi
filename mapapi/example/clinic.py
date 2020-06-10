@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import codecs
-import baidu
+from mapapi import baidu
 import json
 
 with codecs.open('data/clinic.txt', 'r', encoding='utf-8') as f:
@@ -15,7 +15,7 @@ with codecs.open('data/clinic.txt', 'r', encoding='utf-8') as f:
         else:
             unmatched.append(clinic_name)
 
-    print 'nmatched: %d, unmatched: %d' % (len(matched), len(unmatched))
+    print('nmatched: %d, unmatched: %d' % (len(matched), len(unmatched)))
 
     with codecs.open('data/matched_clinic.txt', 'w', encoding='utf-8') as f:
         json.dump(matched, f)

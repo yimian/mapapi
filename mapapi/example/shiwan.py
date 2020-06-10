@@ -4,7 +4,7 @@
 """
 
 from xpinyin import Pinyin
-import baidu
+from mapapi import baidu
 import json
 import logging
 import re
@@ -41,11 +41,11 @@ def get_malls_by_city(malls, city, filter=None):
                     locations.append({'lat': item['location']['lat'], 'lng': item['location']['lng'], 'name': item['name'], 'keyword': m})
                 except:
                     logging.exception(u'item格式错误: %s' % json.dumps(item))
-                    print item
+                    print(item)
             if filter:
-                print city, m, len(data) - nfilter, 'filtered: %d' % nfilter
+                print(city, m, len(data) - nfilter, 'filtered: %d' % nfilter)
             else:
-                print city, m, len(data)
+                print(city, m, len(data))
         json.dump(locations, f)
 
 
@@ -72,15 +72,15 @@ def run_func(func_name, env, *args):
         if hasattr(func, '__call__'):
             func(*args)
         else:
-            print '%s is not a function name' % func_name
+            print('%s is not a function name' % func_name)
     else:
-        print '%s not found' % func_name
+        print('%s not found' % func_name)
 
 
 if __name__ == '__main__':
     import sys
 
     if len(sys.argv) < 2:
-        print "error, not less than one parameter"
+        print("error, not less than one parameter")
         exit(-1)
     run_func(sys.argv[1], globals(), *sys.argv[2:])

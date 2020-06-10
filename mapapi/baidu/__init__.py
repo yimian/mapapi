@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """ use as main map interface. """
 
-from scheduler import RoundRobinScheduler
-from location_api import LocationApi
-from place_api import PlaceApi
-from transform_api import TransformApi
+from mapapi.baidu.scheduler import RoundRobinScheduler
+from mapapi.baidu.location_api import LocationApi
+from mapapi.baidu.place_api import PlaceApi
+from mapapi.baidu.transform_api import TransformApi
 
 
 class MapApi(object):

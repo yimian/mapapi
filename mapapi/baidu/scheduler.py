@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from exceptions import ParamError
+from mapapi.baidu.exceptions import ParamError
 
 
 class BaseScheduler(object):

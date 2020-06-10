@@ -2,13 +2,16 @@
 
 import json
 import logging
-from baidu.place_api import get_place_by_uids
+from mapapi import baidu
 import codecs
+
+
+map_api = baidu.MapApi()
 
 
 def get_locs(data):
     for item in data:
-        loc = get_place_by_uids(item['uid'])
+        loc = map_api.transform_api.get_place_by_uids(item['uid'])
         if loc:
             item['lat'] = loc['location']['lat']
             item['lng'] = loc['location']['lng']
@@ -35,15 +38,15 @@ def run_func(func_name, env, *args):
         if hasattr(func, '__call__'):
             func(*args)
         else:
-            print '%s is not a function name' % func_name
+            print('%s is not a function name' % func_name)
     else:
-        print '%s not found' % func_name
+        print('%s not found' % func_name)
 
 
 if __name__ == '__main__':
     import sys
 
     if len(sys.argv) < 2:
-        print "error, not less than one parameter"
+        print("error, not less than one parameter")
         exit(-1)
     run_func(sys.argv[1], globals(), *sys.argv[2:])
